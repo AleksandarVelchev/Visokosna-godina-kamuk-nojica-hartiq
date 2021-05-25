@@ -5,33 +5,40 @@ using namespace std;
 
 int main() {
 
-	// Произволни числа
+
 	srand(time(0));
 
-	// Въвеждане с масив на камъкът, ножицата и хартията
-	string psr[3] = {"nojica", "kamuk", "hartiq"};
-
-	// генериране на произволно число за компютър
 	int PC = rand() % 3;
 
-	int you;
+	int guess;
 
-	cout << "nojica (0), kamuk (1), hartiq (2): " << endl;
+	cout << "scissors (0), rock (1), paper (2): " << endl;
 
-	// гарантирано валидно въвеждане
-	cout << "Vuvedete chislo ot 0 do 2."<<endl;
+	cout << "Enter a number between 0 and 2"<<endl;
 
-    cin >> you;
+	cin >> guess;
 
-    //ножица<камък<хартия
-
-	if ((PC + 1) % 3 == you) {
-		cout << "PC - " << psr[PC] << ". You - " << psr[you] << ". Pechelish ";
+	if(guess == 0 && PC == 0){
+        cout << "The computer is scissors, you are scissors. It's a draw. Try again" << endl;
 	}
-	else if ((you + 1) % 3 == PC) {
-		cout << "PC -  " << psr[PC] << ". You - " << psr[you] << ". Gubish";
-	} else {
-		cout << "PC -  " << psr[PC] << ". You - " << psr[you] << ". Ravni";
+	if(guess == 0 && PC == 1){
+        cout << "The computer is rock, you are scissors. You lost. Try again" << endl;
+	}if(guess == 0 && PC == 2){
+        cout << "The computer is paper, you are scissors. Congratulations you won." << endl;
+	}if(guess== 1 && PC == 0){
+        cout << "The computer is scissors, you are rock. Congratulations you won." << endl;
+	}
+	if(guess == 1 && PC == 1){
+        cout << "The computer is rock, you are rock. It's a draw. Try again" << endl;
+	}if(guess == 1 && PC == 2){
+        cout << "The computer is paper, you are rock. You lost. Try again" << endl;
+	}if(guess == 2 && PC == 0){
+        cout << "The computer is scissors, you are paper. You lost. Try again" << endl;
+	}
+	if(guess == 2 && PC == 1){
+        cout << "The computer is rock, you are paper. Congratulations you won" << endl;
+	}if(guess == 2 && PC == 2){
+        cout << "The computer is paper, you are paper. It's a draw. Try again" << endl;
 	}
 
 	return 0;
